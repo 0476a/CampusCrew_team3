@@ -228,6 +228,8 @@ erDiagram
 
 추가 설명:
 - RAG 원본 문서는 공지, 일정, 할 일 설명, 회의록에서 생성한다.
+- `source_type` 허용값은 `NOTICE`, `SCHEDULE`, `TASK`, `MEETING_NOTE`로 고정한다.
+- `team_id + source_type + source_id` 조합은 UNIQUE로 고정한다.
 - 같은 원본 데이터가 수정되면 대응되는 RAG 문서도 함께 갱신한다.
 
 ### 3.9 `rag_chunks`
@@ -244,6 +246,7 @@ erDiagram
 
 추가 설명:
 - `embedding` 컬럼은 PostgreSQL의 pgvector 타입을 사용한다.
+- `document_id + chunk_index` 조합은 UNIQUE로 고정한다.
 - 질문 검색 시 같은 `team_id` 범위의 청크만 조회한다.
 - 유사도 검색 결과는 최대 3개까지만 사용한다.
 
@@ -272,26 +275,17 @@ erDiagram
 
 ## 6. 인덱스 규칙
 
-- `users.email` UNIQUE INDEX
-- `users.student_id` UNIQUE INDEX
-- `teams.join_code` UNIQUE INDEX
-- `team_members(team_id, user_id)` UNIQUE INDEX
-- `notices.team_id` INDEX
-- `schedules.team_id` INDEX
-- `tasks.team_id` INDEX
-- `tasks.assignee_id` INDEX
-- `meeting_notes.team_id` INDEX
-- `rag_documents.team_id` INDEX
-- `rag_chunks.team_id` INDEX
-- `rag_chunks.document_id` INDEX
-- `rag_chunks.embedding` VECTOR INDEX
+- 사용자 이메일, 학번, 팀 참여 코드, 팀 멤버 복합 키는 유니크 제약으로 관리한다.
+- 팀 하위 리소스는 `team_id` 기준 조회가 많으므로 해당 인덱스를 우선 둔다.
+- RAG 검색은 `rag_chunks.embedding` 벡터 인덱스를 사용한다.
 
 ## 7. 구현 규칙
 
-- 모든 FK는 실제 DB 제약으로 생성한다.
-- 삭제 정책은 물리 삭제로 시작한다.
-- 팀 삭제 시 하위 공지, 일정, 할 일, 회의록, 팀원 데이터는 함께 삭제한다.
-- 사용자 삭제 기능은 현재 구현 범위에서 제외한다.
-- 엔터티명은 코드에서 단수형, 테이블명은 DB에서 복수형으로 사용한다.
+- 모든 FK는 실제 DB 제약으로 만든다.
+- 삭제 정책은 복잡하게 가지 않고 물리 삭제 기준으로 시작한다.
+- 팀 삭제 시 팀 하위 데이터는 함께 삭제한다.
+- 사용자 삭제 기능은 현재 범위에서 제외한다.
 - RAG 저장 구조는 PostgreSQL + pgvector 기준으로 구현한다.
+- 원본 공지, 일정, 할 일, 회의록이 삭제되면 연결된 `rag_documents`, `rag_chunks`도 함께 삭제한다.
+- 원본 문서가 수정되면 대응되는 `rag_documents`와 `rag_chunks`는 전체 재생성 기준으로 갱신한다.
 

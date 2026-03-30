@@ -1,4 +1,4 @@
-﻿# CampusCrew 시작 안내
+# CampusCrew 시작 안내
 
 ## 1. 이 문서를 먼저 읽는 이유
 
@@ -14,6 +14,18 @@
 
 처음 문서를 펼쳤을 때는 이 문서 하나만 읽고 움직이면 된다.
 
+## 1.1 처음 30분은 이렇게 보면 된다
+
+처음에는 아래 범위까지만 읽고 바로 움직이면 된다.
+
+1. [PRD](./PRD.md)의 `1. 문서 개요`부터 `3. 서비스 구조`까지
+2. [PLAN](./PLAN.md)의 `2. STEP 진행표`와 지금 STEP의 체크리스트
+3. 내 포지션 가이드의 `1`부터 현재 STEP 섹션까지
+4. 내 포지션 학습 문서의 현재 STEP 파일 1개
+
+지금 당장 배포를 맡지 않는다면 [DEPLOYMENT](./DEPLOYMENT.md)는 나중에 읽어도 된다.  
+지금 당장 브랜치를 만들지 않는다면 [GIT](./GIT.md)는 `2. 운영 방식`부터 `7. Pull Request 규칙`까지만 먼저 보면 된다.
+
 ## 2. 처음 시작할 때 가장 먼저 할 일
 
 ### 처음 봤을 때 바로 할 것
@@ -23,6 +35,7 @@
 3. 내 포지션에 맞는 가이드 문서 1개를 연다.
 4. 내 포지션의 `doc/learning` 폴더에서 현재 STEP 파일을 연다.
 5. 팀원과 오늘 맞춰야 할 문서가 무엇인지 확인한다.
+6. 화면 감을 잡아야 하면 [Figma Make UI 시안](https://www.figma.com/make/22ywy6HuSpF6N6cJC56eQ1/CampusCrew-UI-Design?fullscreen=1&t=n6QahEAS9SYPyqsq-1&preview-route=%2Fteam%2F1)을 같이 연다.
 
 ### 절대 하지 말아야 할 것
 
@@ -34,43 +47,44 @@
 
 ### 공통으로 먼저 보는 문서
 
-| 문서 | 언제 보는가 | 왜 보는가 |
-| --- | --- | --- |
-| [ONBOARDING](./ONBOARDING.md) | 맨 처음 | 시작 순서와 문서 사용법을 잡기 위해 |
-| [PRD](./PRD.md) | 맨 처음 | 무엇을 만들고 무엇을 만들지 않는지 알기 위해 |
-| [PLAN](./PLAN.md) | STEP 시작 전 | 현재 STEP 목표와 각 포지션 산출물을 확인하기 위해 |
-| [GIT](./GIT.md) | 브랜치 만들기 전 | 브랜치, 커밋, PR 규칙을 맞추기 위해 |
-| [DEPLOYMENT](./DEPLOYMENT.md) | EC2 배포 전 | BE-A가 배포 기준과 AWS Free Tier 최신 기준을 확인하기 위해 |
+| 문서 | 먼저 볼 범위 | 언제 보는가 | 왜 보는가 |
+| --- | --- | --- | --- |
+| [ONBOARDING](./ONBOARDING.md) | 전체 | 맨 처음 | 시작 순서와 문서 사용법을 잡기 위해 |
+| [PRD](./PRD.md) | `1. 문서 개요`부터 `3. 서비스 구조`까지 | 맨 처음 | 무엇을 만들고 무엇을 만들지 않는지 알기 위해 |
+| [PLAN](./PLAN.md) | `2. STEP 진행표`와 현재 STEP 체크리스트 | STEP 시작 전 | 현재 STEP 목표와 각 포지션 산출물을 확인하기 위해 |
+| [GIT](./GIT.md) | `2. 운영 방식`부터 `7. Pull Request 규칙`까지 | 브랜치 만들기 전 | 브랜치, 커밋, PR 규칙을 맞추기 위해 |
+| [DEPLOYMENT](./DEPLOYMENT.md) | `3. GCP 무료 체험판 기준`부터 `9. BE-A가 해야 할 일`까지 | GCP AI 서버와 최종 배포 전 | BE-A가 배포 기준과 GCP 무료 체험판 기준, AI 서버 분리 구조를 확인하기 위해 |
 
 ### 프론트엔드가 바로 보는 문서
 
-1. [FRONTEND_GUIDE](../frontend/FRONTEND_GUIDE.md)
-2. [UI_SPEC](../frontend/UI_SPEC.md)
-3. [SCREEN_FLOW](../frontend/SCREEN_FLOW.md)
-4. [API_SPEC](../backend/API_SPEC.md)
-5. [doc/learning/frontend](../learning/frontend/)
+1. [FRONTEND_GUIDE](../frontend/FRONTEND_GUIDE.md)의 `1`부터 현재 STEP까지 읽는다.
+2. [UI_SPEC](../frontend/UI_SPEC.md)의 `2. 공통 화면 원칙`부터 지금 만드는 화면의 상세 명세까지 읽는다.
+3. [SCREEN_FLOW](../frontend/SCREEN_FLOW.md)의 `2. 전체 화면 흐름`부터 `5. 작성 화면 공통 흐름`까지 읽는다.
+4. [API_SPEC](../backend/API_SPEC.md)의 `2. 공통 규칙`과 지금 붙일 API 섹션만 읽는다.
+5. [Figma Make UI 시안](https://www.figma.com/make/22ywy6HuSpF6N6cJC56eQ1/CampusCrew-UI-Design?fullscreen=1&t=n6QahEAS9SYPyqsq-1&preview-route=%2Fteam%2F1)을 같이 열어 실제 화면 감을 잡는다.
+6. [frontend STEP 학습 문서](../learning/frontend/)에서 현재 STEP 파일 1개만 읽는다.
 
 ### BE-A가 바로 보는 문서
 
-1. [BE_A_GUIDE](../backend/BE_A_GUIDE.md)
-2. [API_SPEC](../backend/API_SPEC.md)
-3. [ERD](../backend/ERD.md)
-4. [DEPLOYMENT](./DEPLOYMENT.md)
-5. [doc/learning/be-a](../learning/be-a/)
+1. [BE_A_GUIDE](../backend/BE_A_GUIDE.md)의 `1`부터 현재 STEP까지 읽는다.
+2. [API_SPEC](../backend/API_SPEC.md)의 `2. 공통 규칙`부터 현재 맡은 API 범위까지 읽는다.
+3. [ERD](../backend/ERD.md)의 `2. ERD`부터 `5. 상태값 규칙`까지 읽는다.
+4. [DEPLOYMENT](./DEPLOYMENT.md)의 `3. GCP 무료 체험판 기준`부터 `9. BE-A가 해야 할 일`까지 읽는다.
+5. [be-a STEP 학습 문서](../learning/be-a/)에서 현재 STEP 파일 1개만 읽는다.
 
 ### BE-B가 바로 보는 문서
 
-1. [BE_B_GUIDE](../backend/BE_B_GUIDE.md)
-2. [API_SPEC](../backend/API_SPEC.md)
-3. [ERD](../backend/ERD.md)
-4. [doc/learning/be-b](../learning/be-b/)
+1. [BE_B_GUIDE](../backend/BE_B_GUIDE.md)의 `1`부터 현재 STEP까지 읽는다.
+2. [API_SPEC](../backend/API_SPEC.md)의 `2. 공통 규칙`, `6. 대시보드 API`, 그리고 지금 구현할 도메인 API 섹션만 읽는다.
+3. [ERD](../backend/ERD.md)의 `2. ERD`부터 `7. 구현 규칙`까지 읽는다.
+4. [be-b STEP 학습 문서](../learning/be-b/)에서 현재 STEP 파일 1개만 읽는다.
 
 ### AI가 바로 보는 문서
 
-1. [AI_GUIDE](../ai/AI_GUIDE.md)
-2. [AI_SPEC](../ai/AI_SPEC.md)
-3. [API_SPEC](../backend/API_SPEC.md)
-4. [doc/learning/ai](../learning/ai/)
+1. [AI_GUIDE](../ai/AI_GUIDE.md)의 `1`부터 현재 STEP까지 읽는다.
+2. [AI_SPEC](../ai/AI_SPEC.md)의 `3. 공통 규칙`부터 `9. 실패 처리 규칙`까지 읽는다.
+3. [API_SPEC](../backend/API_SPEC.md)의 `2. 공통 규칙`과 `10. AI API`를 읽는다.
+4. [ai STEP 학습 문서](../learning/ai/)에서 현재 STEP 파일 1개만 읽는다.
 
 ## 4. STEP이 시작되면 이렇게 움직인다
 
@@ -84,14 +98,23 @@
 ### STEP 진행 중
 
 - 막히면 먼저 내 포지션 가이드로 돌아간다.
-- 화면이나 UX가 헷갈리면 `UI_SPEC.md`를 본다.
-- API 요청/응답이 헷갈리면 `API_SPEC.md`를 본다.
-- 데이터 구조가 헷갈리면 `ERD.md`를 본다.
-- 범위가 커지고 있는지 의심되면 `PRD.md`와 `PLAN.md`를 다시 본다.
+- 화면이나 UX가 헷갈리면 [UI_SPEC](../frontend/UI_SPEC.md)를 본다.
+- 화면 이동 순서가 헷갈리면 [SCREEN_FLOW](../frontend/SCREEN_FLOW.md)를 본다.
+- API 요청/응답이 헷갈리면 [API_SPEC](../backend/API_SPEC.md)를 본다.
+- 데이터 구조가 헷갈리면 [ERD](../backend/ERD.md)를 본다.
+- AI 출력 형식이 헷갈리면 [AI_SPEC](../ai/AI_SPEC.md)를 본다.
+- 범위가 커지고 있는지 의심되면 [PRD](./PRD.md)와 [PLAN](./PLAN.md)을 다시 본다.
+
+### STEP 2에서 특히 기억할 것
+
+- STEP 2는 인증 구현뿐 아니라 서버 초기 셋팅을 시작하는 단계다.
+- 프론트는 STEP 2 초반에 로컬 통신 기준으로 먼저 구현해도 된다.
+- 백엔드 인증 API가 준비되면 프론트는 실제 서버 통신으로 전환한다.
+- 서버 반영은 자동 파이프라인 없이 `git push`와 서버 측 `git pull`로 진행한다.
 
 ### STEP 끝날 때
 
-- 이번 STEP 산출물이 실제로 끝났는지 `PLAN.md` 체크리스트로 확인한다.
+- 이번 STEP 산출물이 실제로 끝났는지 [PLAN](./PLAN.md) 체크리스트로 확인한다.
 - 구현 내용과 문서 내용이 다르면 문서를 먼저 업데이트한다.
 - 다음 STEP에 들어가기 전에 각 포지션의 `STEP` 학습 문서를 한 번 채운다.
 
@@ -140,7 +163,7 @@
 | 화면 이동 순서가 헷갈린다 | [SCREEN_FLOW](../frontend/SCREEN_FLOW.md) |
 | 요청/응답 형식이 헷갈린다 | [API_SPEC](../backend/API_SPEC.md) |
 | 테이블 구조나 관계가 헷갈린다 | [ERD](../backend/ERD.md) |
-| EC2 배포와 Free Tier 기준이 헷갈린다 | [DEPLOYMENT](./DEPLOYMENT.md) |
+| GCP AI 서버와 무료 체험판 기준이 헷갈린다 | [DEPLOYMENT](./DEPLOYMENT.md) |
 | 브랜치나 PR 규칙이 헷갈린다 | [GIT](./GIT.md) |
 | 지금 무엇부터 다시 읽어야 할지 모르겠다 | [ONBOARDING](./ONBOARDING.md) |
 
@@ -167,5 +190,6 @@
 
 ### AI
 
-- OpenAI: [Prompt engineering guide](https://platform.openai.com/docs/guides/prompt-engineering)
-- OpenAI: [Structured outputs guide](https://platform.openai.com/docs/guides/structured-outputs)
+- Google AI for Developers: [Gemini API docs](https://ai.google.dev/gemini-api/docs)
+- Google AI for Developers: [Gemini models](https://ai.google.dev/gemini-api/docs/models)
+- Google AI for Developers: [Structured output](https://ai.google.dev/gemini-api/docs/structured-output)
