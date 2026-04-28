@@ -8,8 +8,8 @@ CampusCrew는 대학생 팀 프로젝트를 위한 협업 워크스페이스다.
 | --- | --- |
 | 주제 | 대학생 팀 프로젝트 협업 서비스 |
 | 서비스명 | CampusCrew |
-| 프론트엔드 | React, React Router, TanStack Query, CSS Modules |
-| 백엔드 | Spring Boot, Spring Web, Spring Data JPA, Spring Security, JWT |
+| 프론트엔드 | React 19, React Router v7, TanStack Query v5, CSS Modules, Vite 8 |
+| 백엔드 | Spring Boot 3.5.14, Spring Web, Spring Data JPA, Spring Security, JJWT 0.12.6 |
 | AI | 단일 `e2-standard-2` 인스턴스 내 분리된 AI 서버 프로세스, 외부 LLM `gemini-2.5-flash-lite` 호출, 경량 RAG 기반 팀 문서 Q&A |
 | 인원 구성 | 프론트 1명, 백엔드 2명, AI 1명 |
 | 데이터베이스 | PostgreSQL, pgvector, H2 |
@@ -75,11 +75,55 @@ CampusCrew는 대학생 팀 프로젝트를 위한 협업 워크스페이스다.
 - 구현 중 막힐 때: [ONBOARDING](./doc/common/ONBOARDING.md)의 `7. 자주 막히는 지점과 돌아갈 문서`
 - 배포 준비 시점: [DEPLOYMENT](./doc/common/DEPLOYMENT.md)와 [GIT](./doc/common/GIT.md)의 운영 방식
 
-## 4. 폴더 구조
+## 4. 기술 스택 버전 명세
+
+### 공통 환경
+
+| 항목 | 버전 |
+| --- | --- |
+| Node.js | 22 LTS (Iron) |
+| Java | 21 LTS (Temurin) |
+
+### 프론트엔드 (`frontend/`)
+
+| 라이브러리 | 버전 | 역할 |
+| --- | --- | --- |
+| Vite | 8.x | 빌드 도구 |
+| React | 19.x | UI 프레임워크 |
+| React DOM | 19.x | DOM 렌더링 |
+| React Router | 7.x | 클라이언트 라우팅 |
+| TanStack Query | 5.x | 서버 상태 관리 |
+| CSS Modules | Vite 내장 | 컴포넌트 스타일 격리 |
+
+### 백엔드 (`backend/`)
+
+| 라이브러리 | 버전 | 역할 |
+| --- | --- | --- |
+| Spring Boot | 3.5.14 | 서버 프레임워크 |
+| Spring Web | (Boot 관리) | REST API |
+| Spring Security | (Boot 관리) | 인증·인가 |
+| Spring Data JPA | (Boot 관리) | ORM |
+| Hibernate | (Boot 관리) | JPA 구현체 |
+| Bean Validation | (Boot 관리) | 요청 검증 |
+| JJWT | 0.12.6 | JWT 발급·검증 |
+| PostgreSQL Driver | (Boot 관리) | 운영 DB |
+| H2 | (Boot 관리) | 로컬 인메모리 DB |
+| Lombok | (Boot 관리) | 보일러플레이트 제거 |
+| Gradle | 8.x (wrapper) | 빌드 도구 |
+
+### 데이터베이스
+
+| 항목 | 버전 | 용도 |
+| --- | --- | --- |
+| PostgreSQL | 16.x | 운영 |
+| pgvector | 0.8.x | AI 벡터 검색 |
+| H2 | 2.x | 로컬 개발·테스트 |
+
+## 5. 폴더 구조
 
 ```text
-frontend/
-backend/
+frontend/       # React + Vite 프로젝트
+backend/        # Spring Boot + Gradle 프로젝트
 doc/
   common/
   frontend/
