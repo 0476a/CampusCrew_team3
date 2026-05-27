@@ -5,6 +5,7 @@ import TeamsHeader from "../features/teams/TeamsHeader.jsx";
 import styles from './styles/TeamsPage.module.css'
 import {useEffect, useState} from "react";
 import {getTeams} from "../services/teams.js";
+import { Outlet } from 'react-router-dom'
 
 function TeamsPage() {
   const [teams, setTeams] = useState([]);
@@ -54,6 +55,8 @@ return (
         <CreateTeamCard />
         <JoinTeamCard />
       </section>
+
+      <Outlet />
     </main>
   </div>
 )

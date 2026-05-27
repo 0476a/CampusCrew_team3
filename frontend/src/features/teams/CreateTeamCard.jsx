@@ -1,7 +1,14 @@
 import styles from './styles/CreateTeamCard.module.css'
 import {Plus} from "lucide-react";
+import { useNavigate } from 'react-router-dom'
 
 function CreateTeamCard() {
+  const navigate = useNavigate()
+
+  function handleCreateTeam() {
+    navigate('/teams/new')
+  }
+
   return (
     <section className={styles.createTeamCard}>
       <div className={styles.titleBox}>
@@ -17,6 +24,7 @@ function CreateTeamCard() {
       <button
         type="button"
         className={styles.createButton}
+        onClick={handleCreateTeam}
       >
         <Plus size={20} />
         팀 생성
