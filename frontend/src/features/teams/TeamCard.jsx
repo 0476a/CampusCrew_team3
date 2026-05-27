@@ -8,8 +8,8 @@ function TeamCard({team}) {
         <Users size={28} />
       </div>
       <div className={styles.teamInfo}>
-        <h3 className={styles.teamName}>{team.teamName}</h3>
-        <p className={styles.subjectName}>{team.subjectName}</p>
+        <h3 className={styles.teamName}>{team.name}</h3>
+        <p className={styles.subjectName}>{team.courseName}</p>
       </div>
 
       <div className={styles.memberInfo}>

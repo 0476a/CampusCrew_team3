@@ -1,9 +1,26 @@
 import styles from './styles/JoinTeamCard.module.css'
 import {LogIn} from "lucide-react";
+import {useState} from "react";
+import {joinTeam} from "../../services/teams.js";
 
 function JoinTeamCard() {
+  const [error, setError] = useState('')
+  const [joinCode, setJoinCode] = useState('')
+
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setError('')
+    try {
+      await joinTeam(joinCode)
+      setJoinCode('');
+    } catch (err) {
+      setError(err.message)
+    }
+  }
+
   return (
-    <form className={styles.joinTeamCard}>
+    <form className={styles.joinTeamCard} onSubmit={handleSubmit}>
       <div className={styles.titleBox}>
         <h2 className={styles.title}>
           <LogIn size={22} />
@@ -16,15 +33,18 @@ function JoinTeamCard() {
       </div>
 
       <div className={styles.inputBox}>
-        <label className={styles.label} htmlFor="inviteCode">
+        <label className={styles.label} htmlFor="joinCode">
           초대 코드
         </label>
 
         <input
-          id="inviteCode"
+          id="joinCode"
           className={styles.input}
           type="text"
+          value={joinCode}
+          onChange={(e) => setJoinCode(e.target.value)}
           placeholder="ABC-DEF-123"
+          required
         />
       </div>
 
