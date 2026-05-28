@@ -1,9 +1,16 @@
 import styles from './styles/TeamCard.module.css'
 import {Users} from "lucide-react";
+import {useNavigate} from "react-router-dom";
 
 function TeamCard({team}) {
+  const navigate = useNavigate()
+
+  function handleTeamClick() {
+    navigate(`/teams/detail`)
+  }
+
   return (
-    <button type="button" className={styles.teamCard}>
+    <button type="button" className={styles.teamCard} onClick={handleTeamClick}>
       <div className={styles.iconBox}>
         <Users size={28} />
       </div>

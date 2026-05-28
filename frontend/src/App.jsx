@@ -4,6 +4,7 @@ import SignupPage from './pages/SignupPage'
 import TeamsPage from './pages/TeamsPage'
 import PrivateRoute from './components/PrivateRoute'
 import CreateTeamModal from "./features/teams/CreateTeamModal.jsx";
+import AppLayout from "./components/layout/AppLayout.jsx";
 
 function App() {
   return (
@@ -22,6 +23,8 @@ function App() {
         >
           <Route path="new" element={<CreateTeamModal />} />
         </Route>
+
+        <Route path="/teams/detail" element={<AppLayout />} />
 
         <Route path="/" element={<Navigate to="/login" replace />} />
       </Routes>
